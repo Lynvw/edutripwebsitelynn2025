@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Edutrip</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d0e1f9, #f7c6c7);
+      color: #3a3a3a;
+      text-align: center;
+    }
+
+    .navbar {
+      background: rgba(225, 245, 254, 0.9);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 10px 10px;
+      backdrop-filter: blur(10px);
+      animation: slideDown 1s ease-in-out;
+    }
+
+    .navbar a {
+      color: #3a3a3a;
+      text-decoration: none;
+      padding: 14px 20px;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .navbar a:hover {
+      background: #e1f5fe;
+      border-radius: 5px;
+      transform: scale(1.1);
+    }
+
+    .content {
+      margin-top: 120px;
+      font-size: 28px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .content h1 {
+      font-size: 36px;
+      color: #333;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      animation: bounceIn 1.5s ease-in-out;
+    }
+
+    .content p {
+      font-size: 20px;
+      margin-top: 10px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .content img {
+      width: auto;
+      max-width: 595px; /* Lebar A4 dalam piksel pada 72dpi */
+      height: auto;
+      max-height: 842px; /* Tinggi A4 */
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="agama.html">Agama</a>
+    <a href="bahasaindonesia.html">Bahasa Indonesia</a>
+    <a href="bahasainggris.html">Bahasa Inggris</a>
+    <a href="mandarin.html">Mandarin</a>
+    <a href="ppkn.html">PPKN</a>
+    <a href="ips.html">IPS</a>
+    <a href="index.html">Home</a>
+  </div>
+
+  <div class="content">
+    <h1>Ini adalah halaman Mandarin</h1>
+    <img src="Mandarin Performance Task - Taiwan Edutrip.png" alt="Mandarin Performance Task">
+  </div>
+</body>
+</html>

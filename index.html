@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edutrip Taiwan Kaohsiung</title>
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #FADCD9, #DDECF8);
+      color: #555;
+      text-align: center;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      animation: slideDown 1s ease-in-out;
+      z-index: 100;
+    }
+    .navbar a {
+      color: #555;
+      text-decoration: none;
+      padding: 14px 20px;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .navbar a:hover {
+      background: rgba(250, 220, 210, 0.7);
+      border-radius: 5px;
+      transform: scale(1.1);
+    }
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      animation: bounceIn 1.5s ease-in-out;
+    }
+    .tagline {
+      font-size: 24px;
+      height: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tagline span {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    .tagline span.active {
+      opacity: 1;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      font-size: 24px;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+    /* Content Sections */
+    section {
+      padding: 100px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    section p {
+      font-size: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="agama.html">Agama</a>
+    <a href="bahasaindonesia.html">Bahasa Indonesia</a>
+    <a href="bahasainggris.html">Bahasa Inggris</a>
+    <a href="mandarin.html">Mandarin</a>
+    <a href="ppkn.html">PPKN</a>
+    <a href="ips.html">IPS</a>
+    <a href="index.html">Home</a>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Edutrip Taiwan Kaohsiung!</h1>
+    <div class="tagline" id="tagline">
+      <span class="active">Explore the vibrant streets of Kaohsiung.</span>
+      <span>Discover hidden gems around every corner.</span>
+      <span>Experience rich culture and adventure.</span>
+    </div>
+    <div class="scroll-indicator" onclick="scrollToSection('about')">&#8595;</div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>Welcome to the Website!</h2>
+    <p>
+        Selamat datang di website AP TIK, dalam website ini tersedia hasil tugas edutrip dari 6 mata pelajaran berbeda yaitu Agama, Bahasa Indonesia, Bahasa Inggris, PPKN, Mandarin, dan IPS. 
+    </p>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <h2>About Me</h2>
+    <p>
+     By Lynn Valerie Wiranda 8E/24
+    </p>
+  </section>
+
+
+
+  <script>
+    // Rotating Tagline Script
+    const taglines = document.querySelectorAll('#tagline span');
+    let current = 0;
+    setInterval(() => {
+      taglines[current].classList.remove('active');
+      current = (current + 1) % taglines.length;
+      taglines[current].classList.add('active');
+    }, 3000);
+
+    // Scroll Indicator click: Scroll to section by ID
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Reveal sections on scroll
+    const sections = document.querySelectorAll('section');
+    const revealSection = () => {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (sectionTop < windowHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealSection);
+    // Initial check in case sections are in view on load
+    revealSection();
+  </script>
+</body>
+</html>
